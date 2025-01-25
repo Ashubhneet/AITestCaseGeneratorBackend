@@ -13,6 +13,13 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "UP",
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.post("/submit", async (req, res) => {
   try {
     const payload = req.body; // The incoming payload
