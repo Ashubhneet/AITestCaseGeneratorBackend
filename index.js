@@ -30,13 +30,8 @@ app.post("/submit", async (req, res) => {
 
     const requirement = `
 This is a ${payload.method} api with URL ${payload.url} and parameters ${payload.body} and payload ${payload.payload}.
-dummy successful response is {
-"userId": 1,
-"id": 1,
-"title": "delectus aut autem",
-"completed": false
-}
-dumy fail response is {}
+My successful response is ${payload.parsedSuccessResponse}
+My fail response is ${payload.parsedErrorResponse}
 now write testcases in Chai.js 
 Test Case Structure:
 Each test case should follow this format:
@@ -55,21 +50,11 @@ API Request:
 • URL: ${payload.url}
 • Headers: ${payload.headers}
 • Query Parameters: None
+
 Sample Response:
-• Success Response:
-[
-    {
-        "userld": 1,
-        "id": 1,
-        "title": "Sample title",
-        "body": "Sample body content"
-    }
-]
-• Error Response:
-{
-    "error": "Unauthorized",
-    "message": "Invalid token"
-}
+• Success Response:${payload.parsedSuccessResponse}
+• Error Response:${payload.parsedErrorResponse}
+
 Generated Test Cases:
 1. Test Case 1: Validate Successful Response (200 ΟΚ)
 • Expected Result: Status code is 200

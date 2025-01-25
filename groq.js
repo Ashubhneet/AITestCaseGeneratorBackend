@@ -23,11 +23,12 @@
 // }
 
 // // content: "Explain the importance of fast language models",
+require("dotenv").config();
 
 const Groq = require("groq-sdk");
-
+// console.log(process.env.API_KEYS);
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.API_KEYS,
 });
 
 async function getGroqChatCompletion(message) {
